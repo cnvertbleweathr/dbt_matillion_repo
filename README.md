@@ -7,7 +7,8 @@ Welcome dbt as an official integration into Matillion ETL! Users can now incorpo
 In this workflow, we will utilize Matillion ETL to load the current Premier League penalty card leaders, both red and yellow cards (much of the titling for our objects will be “Red Cards” for simplicity sake). The dataset of the top 20 players with this dubious distinction will be loaded to Snowflake and transformed into a usable stage using Matillion ETL. We will then put dbt to use. New components - Sync External Files and Run DBT command - will be used to fetch dbt configuration files from a Github repository then perform data quality tests on our red card leaders dataset.
 
 
-*** 2 - PREREQUISITES	
+
+### 2 - PREREQUISITES
 
 
 Let’s set ourselves up for success. Please check off each item in this section before moving to 3 - MATILLION ETL ORCHESTRATION 
@@ -94,7 +95,7 @@ Dbt Cloud can be accessed via a free account from their page and can be deployed
 RAPIDAPI API-FOOTBALL SERVICE
 Note: In order to follow along with the flow you will need to subscribe to the API-FOOTBALL endpoint, found within RapidAPI. This is a freemium service and should not charge you for building this lab. If you are not comfortable doing so, there is another section in which you can load this data from AWS S3.
 
-*** 3 - MATILLION ETL ORCHESTRATION
+### 3 - MATILLION ETL ORCHESTRATION
 
 
 
@@ -233,7 +234,7 @@ Upon navigating to Snowflake, you should be able to navigate to Data > Databases
 Nice work! You’ve successfully loaded a dataset. Let’s use a Matillion Transformation job to make it usable, before running it through dbt tests.
 
 
-*** 4 - MATILLION ETL TRANSFORMATION
+### 4 - MATILLION ETL TRANSFORMATION
 
 
 Matillion ETL has Transformation jobs available, for users to create standardized workflows of making their data useful. Let’s flatten our semistructured dataset into a staging table, which will be used in our dbt model.
@@ -377,7 +378,7 @@ Amazing! At this point, we have utilized Matillion ETL to extract data for card-
 Let’s now return back to our Orchestration job to begin adding dbt functionality.
 
   
-*** 5 - dbt SCRIPTS
+### 5 - dbt SCRIPTS
 
 Let’s take a break from our Matillion ETL workflow to take a look at the dbt scripts we would like to introduce to our flow. The Github repository serving as the base for our dbt project files can be found here. 
 
@@ -419,7 +420,7 @@ Here the user defines tests to be run on the model.
 
 With the background information covered on what dbt will be doing, let’s use it in Matillion ETL!
 
-*** 6 - dbt in MATILLION ETL
+### 5 - dbt in MATILLION ETL
 
 
 It is now time to put our dbt project files to work. We will need to first set up the process to fetch dbt scripts in the Github repo. This involves the Manage External File Sources menu and the Sync File Source components.
@@ -563,8 +564,7 @@ Update the Command field to dbt source freshness.
 Right-click and select Run Component. Let’s take a look at the Task Message:
 
 
-
-*** (OPTIONAL) 7 - MONKEY WRENCH
+### (OPTIONAL) 7 - MONKEY WRENCH
 
 
 This workflow, has represented a “happy path” of how dbt can be introduced into Matillion ETL. Let’s throw a monkey wrench 🐵🔧 into the flow and introduce some dirty data.
@@ -655,7 +655,7 @@ We have successfully shown how to set source freshness tests, and how it appears
   
   
 
-*** 8 - CONCLUSION
+### 8 - CONCLUSION
 
 
 
